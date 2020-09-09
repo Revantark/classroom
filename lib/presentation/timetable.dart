@@ -69,6 +69,7 @@ class SubsCard extends StatelessWidget {
                     physics: const NeverScrollableScrollPhysics(),
                     itemCount: state.timetable[_index].data()['subs'].length,
                     itemBuilder: (context, index) {
+                      
                       return ListTile(
                         title: Center(
                           child: Text(
@@ -82,8 +83,8 @@ class SubsCard extends StatelessWidget {
                         onTap: () {
                           if (state.links.isEmpty) {
                             Scaffold.of(context).showSnackBar(SnackBar(
-                                content:
-                                    const Text("Updating links , try again")));
+                                content: const Text(
+                                    "Updating links , try again")));
                           } else {
                             String sub =
                                 state.timetable[_index].data()['subs'][index];
@@ -98,13 +99,14 @@ class SubsCard extends StatelessWidget {
                                     return BlocProvider.value(
                                         value: bloc,
                                         child: BottomSheetOptions(
-                                          wtUrl: state.links["WT"],
-                                          cnUrl: state.links["CN"],
+                      wtUrl: state.links["WT"],
+                      cnUrl: state.links["CN"],
                                         ));
                                   });
                             } else
                               context.bloc<FirestoreBloc>().add(
-                                  FirestoreEvent.launchZoom(state.links[sub]));
+                                  FirestoreEvent.launchZoom(
+                                      state.links[sub]));
                           }
                         },
                       );

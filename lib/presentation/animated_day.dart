@@ -11,10 +11,12 @@ class AnimatedDay extends StatelessWidget {
     int today = day;
     return PageView.builder(
       itemCount: 6,
+      physics: const NeverScrollableScrollPhysics(),
       controller: dateController,
       itemBuilder: (context, index) {
         return AnimatedBuilder(
           animation: dateController,
+
           builder: (context, child) {
             double value = 0.65;
             if (index == today) {
