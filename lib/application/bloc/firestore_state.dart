@@ -5,7 +5,7 @@ abstract class FirestoreState with _$FirestoreState {
   const factory FirestoreState(
     {
       List timetable,
-      Map links
+      Map links,
     }
   ) = _FirestoreState;
 
