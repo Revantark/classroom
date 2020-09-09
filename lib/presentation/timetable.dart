@@ -50,6 +50,7 @@ class SubsCard extends StatelessWidget {
   SubsCard(this._index);
   @override
   Widget build(BuildContext context) {
+    final bloc = BlocProvider.of<FirestoreBloc>(context);
     return Padding(
       padding: const EdgeInsets.only(bottom: 24.0),
       child: Card(
@@ -69,7 +70,6 @@ class SubsCard extends StatelessWidget {
                     itemCount: state.timetable[_index].data()['subs'].length,
                     itemBuilder: (context, index) {
                       return ListTile(
-                        focusColor: Colors.green,
                         title: Center(
                           child: Text(
                             state.timetable[_index].data()['subs'][index],
@@ -95,24 +95,12 @@ class SubsCard extends StatelessWidget {
                               showModalBottomSheet(
                                   context: context,
                                   builder: (context) {
-                                    return Wrap(
-                                      children: [
-                                        ListTile(
-                                            title: const Text("CN"),
-                                            onTap: () {
-                                              context.bloc<FirestoreBloc>().add(
-                                                  FirestoreEvent.launchZoom(
-                                                      state.links["CN"]));
-                                            }),
-                                        ListTile(
-                                            title: const Text("WT"),
-                                            onTap: () {
-                                              context.bloc<FirestoreBloc>().add(
-                                                  FirestoreEvent.launchZoom(
-                                                      state.links["WT"]));
-                                            })
-                                      ],
-                                    );
+                                    return BlocProvider.value(
+                                        value: bloc,
+                                        child: BottomSheetOptions(
+                                          wtUrl: state.links["WT"],
+                                          cnUrl: state.links["CN"],
+                                        ));
                                   });
                             } else
                               context.bloc<FirestoreBloc>().add(
@@ -126,6 +114,33 @@ class SubsCard extends StatelessWidget {
           }),
         ),
       ),
+    );
+  }
+}
+
+class BottomSheetOptions extends StatelessWidget {
+  final String wtUrl, cnUrl;
+
+  const BottomSheetOptions({Key key, this.wtUrl, this.cnUrl}) : super(key: key);
+  @override
+  Widget build(BuildContext context) {
+    return Wrap(
+      children: [
+        ListTile(
+            title: const Text("CN"),
+            onTap: () {
+              context
+                  .bloc<FirestoreBloc>()
+                  .add(FirestoreEvent.launchZoom(cnUrl));
+            }),
+        ListTile(
+            title: const Text("WT"),
+            onTap: () {
+              context
+                  .bloc<FirestoreBloc>()
+                  .add(FirestoreEvent.launchZoom(wtUrl));
+            })
+      ],
     );
   }
 }

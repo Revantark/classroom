@@ -18,7 +18,6 @@ class _MyHomePageState extends State<MyHomePage> {
         viewportFraction: 0.4, keepPage: false, initialPage: today);
     subsController = PageController(
         viewportFraction: 0.7, keepPage: false, initialPage: today);
-    // BlocProvider.of<FirestoreBloc>(context).add(const FirestoreEvent.getData());
     super.initState();
   }
 
