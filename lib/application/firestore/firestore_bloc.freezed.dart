@@ -13,8 +13,10 @@ class _$FirestoreEventTearOff {
   const _$FirestoreEventTearOff();
 
 // ignore: unused_element
-  _Started getData() {
-    return const _Started();
+  _Started getData(String classs) {
+    return _Started(
+      classs,
+    );
   }
 
 // ignore: unused_element
@@ -45,14 +47,14 @@ const $FirestoreEvent = _$FirestoreEventTearOff();
 mixin _$FirestoreEvent {
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result getData(),
+    @required Result getData(String classs),
     @required Result setLinks(Map<dynamic, dynamic> links),
     @required Result setTimetable(List<dynamic> timetable),
     @required Result launchZoom(String url),
   });
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result getData(),
+    Result getData(String classs),
     Result setLinks(Map<dynamic, dynamic> links),
     Result setTimetable(List<dynamic> timetable),
     Result launchZoom(String url),
@@ -93,6 +95,7 @@ class _$FirestoreEventCopyWithImpl<$Res>
 abstract class _$StartedCopyWith<$Res> {
   factory _$StartedCopyWith(_Started value, $Res Function(_Started) then) =
       __$StartedCopyWithImpl<$Res>;
+  $Res call({String classs});
 }
 
 class __$StartedCopyWithImpl<$Res> extends _$FirestoreEventCopyWithImpl<$Res>
@@ -102,34 +105,56 @@ class __$StartedCopyWithImpl<$Res> extends _$FirestoreEventCopyWithImpl<$Res>
 
   @override
   _Started get _value => super._value as _Started;
+
+  @override
+  $Res call({
+    Object classs = freezed,
+  }) {
+    return _then(_Started(
+      classs == freezed ? _value.classs : classs as String,
+    ));
+  }
 }
 
 class _$_Started with DiagnosticableTreeMixin implements _Started {
-  const _$_Started();
+  const _$_Started(this.classs) : assert(classs != null);
+
+  @override
+  final String classs;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'FirestoreEvent.getData()';
+    return 'FirestoreEvent.getData(classs: $classs)';
   }
 
   @override
   void debugFillProperties(DiagnosticPropertiesBuilder properties) {
     super.debugFillProperties(properties);
-    properties..add(DiagnosticsProperty('type', 'FirestoreEvent.getData'));
+    properties
+      ..add(DiagnosticsProperty('type', 'FirestoreEvent.getData'))
+      ..add(DiagnosticsProperty('classs', classs));
   }
 
   @override
   bool operator ==(dynamic other) {
-    return identical(this, other) || (other is _Started);
+    return identical(this, other) ||
+        (other is _Started &&
+            (identical(other.classs, classs) ||
+                const DeepCollectionEquality().equals(other.classs, classs)));
   }
 
   @override
-  int get hashCode => runtimeType.hashCode;
+  int get hashCode =>
+      runtimeType.hashCode ^ const DeepCollectionEquality().hash(classs);
+
+  @override
+  _$StartedCopyWith<_Started> get copyWith =>
+      __$StartedCopyWithImpl<_Started>(this, _$identity);
 
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result getData(),
+    @required Result getData(String classs),
     @required Result setLinks(Map<dynamic, dynamic> links),
     @required Result setTimetable(List<dynamic> timetable),
     @required Result launchZoom(String url),
@@ -138,13 +163,13 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
     assert(setLinks != null);
     assert(setTimetable != null);
     assert(launchZoom != null);
-    return getData();
+    return getData(classs);
   }
 
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result getData(),
+    Result getData(String classs),
     Result setLinks(Map<dynamic, dynamic> links),
     Result setTimetable(List<dynamic> timetable),
     Result launchZoom(String url),
@@ -152,7 +177,7 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
   }) {
     assert(orElse != null);
     if (getData != null) {
-      return getData();
+      return getData(classs);
     }
     return orElse();
   }
@@ -190,7 +215,10 @@ class _$_Started with DiagnosticableTreeMixin implements _Started {
 }
 
 abstract class _Started implements FirestoreEvent {
-  const factory _Started() = _$_Started;
+  const factory _Started(String classs) = _$_Started;
+
+  String get classs;
+  _$StartedCopyWith<_Started> get copyWith;
 }
 
 abstract class _$SetLinksCopyWith<$Res> {
@@ -255,7 +283,7 @@ class _$_SetLinks with DiagnosticableTreeMixin implements _SetLinks {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result getData(),
+    @required Result getData(String classs),
     @required Result setLinks(Map<dynamic, dynamic> links),
     @required Result setTimetable(List<dynamic> timetable),
     @required Result launchZoom(String url),
@@ -270,7 +298,7 @@ class _$_SetLinks with DiagnosticableTreeMixin implements _SetLinks {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result getData(),
+    Result getData(String classs),
     Result setLinks(Map<dynamic, dynamic> links),
     Result setTimetable(List<dynamic> timetable),
     Result launchZoom(String url),
@@ -388,7 +416,7 @@ class _$_SetTimetable with DiagnosticableTreeMixin implements _SetTimetable {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result getData(),
+    @required Result getData(String classs),
     @required Result setLinks(Map<dynamic, dynamic> links),
     @required Result setTimetable(List<dynamic> timetable),
     @required Result launchZoom(String url),
@@ -403,7 +431,7 @@ class _$_SetTimetable with DiagnosticableTreeMixin implements _SetTimetable {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result getData(),
+    Result getData(String classs),
     Result setLinks(Map<dynamic, dynamic> links),
     Result setTimetable(List<dynamic> timetable),
     Result launchZoom(String url),
@@ -520,7 +548,7 @@ class _$_LaunchZoomApp with DiagnosticableTreeMixin implements _LaunchZoomApp {
   @override
   @optionalTypeArgs
   Result when<Result extends Object>({
-    @required Result getData(),
+    @required Result getData(String classs),
     @required Result setLinks(Map<dynamic, dynamic> links),
     @required Result setTimetable(List<dynamic> timetable),
     @required Result launchZoom(String url),
@@ -535,7 +563,7 @@ class _$_LaunchZoomApp with DiagnosticableTreeMixin implements _LaunchZoomApp {
   @override
   @optionalTypeArgs
   Result maybeWhen<Result extends Object>({
-    Result getData(),
+    Result getData(String classs),
     Result setLinks(Map<dynamic, dynamic> links),
     Result setTimetable(List<dynamic> timetable),
     Result launchZoom(String url),

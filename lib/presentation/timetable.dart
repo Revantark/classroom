@@ -1,4 +1,4 @@
-import 'package:classroom/application/bloc/firestore_bloc.dart';
+import 'package:classroom/application/firestore/firestore_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -60,7 +60,7 @@ class SubsCard extends StatelessWidget {
               builder: (context, state) {
             if (state.timetable.isEmpty) {
               return const Center(
-                child: const CircularProgressIndicator(),
+                child: const CircularProgressIndicator(backgroundColor: Colors.white,),
               );
             } else {
               return Center(
@@ -85,10 +85,17 @@ class SubsCard extends StatelessWidget {
                             Scaffold.of(context).showSnackBar(SnackBar(
                                 content: const Text(
                                     "Updating links , try again")));
-                          } else {
+                          } else  {
                             String sub =
                                 state.timetable[_index].data()['subs'][index];
-                            if (sub.contains('ACS')) {
+                            String url = state.links[sub];
+                            if(url.isEmpty){
+                              Scaffold.of(context).removeCurrentSnackBar();
+                              Scaffold.of(context).showSnackBar(SnackBar(
+                                content: const Text(
+                                    "No link available")));
+                            }
+                            else if (sub.contains('ACS')) {
                               Scaffold.of(context).showSnackBar(SnackBar(
                                   content: const Text(
                                       "No link available, search in whatsapp")));
@@ -106,7 +113,7 @@ class SubsCard extends StatelessWidget {
                             } else
                               context.bloc<FirestoreBloc>().add(
                                   FirestoreEvent.launchZoom(
-                                      state.links[sub]));
+                                     url));
                           }
                         },
                       );

@@ -22,10 +22,10 @@ class FirestoreBloc extends Bloc<FirestoreEvent, FirestoreState> {
   ) async* {
     yield* event.map(getData: (e) async* {
       _ttSubscription = _firestoreRepository
-          .watchTimeTable()
+          .watchTimeTable(e.classs)
           .listen((event) => add(FirestoreEvent.setTimetable(event)));
       _linksSubscription = _firestoreRepository
-          .watchLinks()
+          .watchLinks(e.classs)
           .listen((event) => add(FirestoreEvent.setLinks(event)));
     }, setLinks: (e) async* {
       yield state.copyWith(links: e.links);
@@ -40,6 +40,7 @@ class FirestoreBloc extends Bloc<FirestoreEvent, FirestoreState> {
       if (await url.canLaunch(e.url)) {
         await url.launch(e.url);
       }
+     
       }
     });
   }
