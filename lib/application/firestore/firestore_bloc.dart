@@ -21,6 +21,8 @@ class FirestoreBloc extends Bloc<FirestoreEvent, FirestoreState> {
     FirestoreEvent event,
   ) async* {
     yield* event.map(getData: (e) async* {
+      _ttSubscription?.cancel();
+      _linksSubscription?.cancel();
       _ttSubscription = _firestoreRepository
           .watchTimeTable(e.classs)
           .listen((event) => add(FirestoreEvent.setTimetable(event)));
