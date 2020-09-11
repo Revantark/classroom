@@ -11,14 +11,14 @@ class IndexPage extends StatelessWidget {
     return BlocBuilder<LocalstorageCubit, LocalstorageState>(
         builder: (context, state) {
       if (state is Checking) {
-        return const Center(child: const CircularProgressIndicator(),);
+        return const Center(child:  CircularProgressIndicator(),);
       } else if (state is ClassFound) {
         BlocProvider.of<FirestoreBloc>(context).add(FirestoreEvent.getData(state.classs));
         return MyHomePage(state.classs);
       } else if (state is ClassNotFound) {
         return SelectClass();
       } else {
-        return const Center(child:const Text("Unexcepted error occured, please restart the app"));
+        return const Center(child: Text("Unexcepted error occured, please restart the app"));
       }
     });
   }

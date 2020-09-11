@@ -9,7 +9,7 @@ class LocalstorageCubit extends Cubit<LocalstorageState> {
   LocalstorageCubit() : super(const LocalstorageState.checking());
 
 
-  void changeClass(String classs) async {
+  Future changeClass(String classs) async {
     try {
       final prefs = await SharedPreferences.getInstance();
       prefs.setString('class', classs);
@@ -18,13 +18,14 @@ class LocalstorageCubit extends Cubit<LocalstorageState> {
       emit(const LocalstorageState.failure());
     }
   }
-  void checkClass() async {
+  Future checkClass() async {
     try {
       final prefs = await SharedPreferences.getInstance();
-      if(prefs.containsKey('class'))
-      emit(LocalstorageState.classFound(prefs.getString('class')));
-      else
-      emit(const LocalstorageState.classNotFound());
+      if(prefs.containsKey('class')) {
+        emit(LocalstorageState.classFound(prefs.getString('class')));
+      } else {
+        emit(const LocalstorageState.classNotFound());
+      }
     } catch (e) {
       emit(const LocalstorageState.failure());
     }

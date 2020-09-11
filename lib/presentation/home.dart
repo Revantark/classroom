@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 
 class MyHomePage extends StatefulWidget {
   final String className;
-  MyHomePage(this.className);
+  const MyHomePage(this.className);
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -41,7 +41,7 @@ class _MyHomePageState extends State<MyHomePage> {
               today: today),
         ),
         Flexible(
-          flex: 1,
+          
           child: CurrentClass(
             cc: '${widget.className.substring(0, 3).toUpperCase()}'
                 '-'

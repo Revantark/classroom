@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:classroom/repository/firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -12,7 +13,7 @@ part 'firestore_state.dart';
 part 'firestore_bloc.freezed.dart';
 
 class FirestoreBloc extends Bloc<FirestoreEvent, FirestoreState> {
-  FirestoreRepository _firestoreRepository;
+  final FirestoreRepository _firestoreRepository;
   bool launch = true;
   FirestoreBloc(this._firestoreRepository) : super(FirestoreState.init());
   StreamSubscription _ttSubscription, _linksSubscription;

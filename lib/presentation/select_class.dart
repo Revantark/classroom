@@ -15,7 +15,7 @@ class SelectClass extends StatelessWidget {
         backgroundColor:Colors.white,
         centerTitle: true,
         elevation: 0,
-        title: const Text("Select Class",style: const TextStyle(
+        title: const Text("Select Class",style:  TextStyle(
           color: Colors.black
         ),),
       ),

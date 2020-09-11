@@ -17,12 +17,12 @@ class ClassesBottomSheet extends StatelessWidget {
       padding: const EdgeInsets.all(8.0),
       child: Wrap(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 16.0, bottom: 16),
+          const Padding(
+            padding:  EdgeInsets.only(top: 16.0, bottom: 16),
             child: Center(
-              child: const Text(
+              child:  Text(
                 "CLASSES",
-                style: const TextStyle(
+                style:  TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w400,
                     fontSize: 20,
@@ -35,7 +35,7 @@ class ClassesBottomSheet extends StatelessWidget {
             color: currentClassSection == 'a' ? Colors.green : Colors.teal[50],
             child: ListTile(
               title: const Center(
-                  child: const Text("CSE A", style: listTextStyle)),
+                  child:  Text("CSE A", style: listTextStyle)),
               onTap: () {
                 if (currentClassSection != 'a') {
                   BlocProvider.of<LocalstorageCubit>(context)
@@ -50,7 +50,7 @@ class ClassesBottomSheet extends StatelessWidget {
             color: currentClassSection == 'b' ? Colors.green : Colors.teal[50],
             child: ListTile(
               title: const Center(
-                child: const Text(
+                child:  Text(
                   "CSE B",
                   style: listTextStyle,
                 ),
@@ -68,8 +68,8 @@ class ClassesBottomSheet extends StatelessWidget {
             margin: const EdgeInsets.all(5),
             color: currentClassSection == 'c' ? Colors.green : Colors.teal[50],
             child: ListTile(
-              title: Center(
-                child: const Text(
+              title:const  Center(
+                child:  Text(
                   "CSE C",
                   style: listTextStyle,
                 ),
@@ -87,8 +87,8 @@ class ClassesBottomSheet extends StatelessWidget {
             margin: const EdgeInsets.all(5),
             color: currentClassSection == 'd' ? Colors.green : Colors.teal[50],
             child: ListTile(
-              title: Center(
-                child: const Text(
+              title: const Center(
+                child:  Text(
                   "CSE D",
                   style: listTextStyle,
                 ),

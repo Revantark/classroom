@@ -23,7 +23,7 @@ class CurrentClass extends StatelessWidget {
                     padding: const EdgeInsets.only(bottom:8.0),
                     child: Column(children: [
             const Icon(Icons.keyboard_arrow_up),
-        Text(cc,style: TextStyle(fontSize: 16),) ,
+        Text(cc,style:const TextStyle(fontSize: 16),) ,
           ],),
                   ),
         )

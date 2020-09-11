@@ -24,7 +24,7 @@ class AnimatedDay extends StatelessWidget {
               today = 7;
             } else if(dateController.position.haveDimensions) {
               value = dateController.page - index;
-              value = (1 - (value.abs() * .5)).clamp(0.65, 1.0);
+              value = (1 - (value.abs() * .5)).clamp(0.65, 1.0) as double;
             }
 
             return Transform.scale(

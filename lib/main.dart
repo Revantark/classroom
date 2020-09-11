@@ -8,8 +8,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'application/firestore/firestore_bloc.dart';
 
-void main() async {
-  SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+Future<void> main() async {
+  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       systemNavigationBarColor: Colors.white,
       systemNavigationBarIconBrightness:
           Brightness.dark, // navigation bar color

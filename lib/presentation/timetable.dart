@@ -30,7 +30,7 @@ class Timetable extends StatelessWidget {
             } else if (controller.position.haveDimensions) {
               //CHECK
               value = controller.page - index;
-              value = (1 - (value.abs() * .5)).clamp(0.87, 1.0);
+              value = (1 - (value.abs() * .5)).clamp(0.87, 1.0) as double;
             }
 
             return Transform.scale(
@@ -47,7 +47,7 @@ class Timetable extends StatelessWidget {
 
 class SubsCard extends StatelessWidget {
   final int _index;
-  SubsCard(this._index);
+  const SubsCard(this._index);
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<FirestoreBloc>(context);
@@ -60,23 +60,23 @@ class SubsCard extends StatelessWidget {
               builder: (context, state) {
             if (state.timetable.isEmpty) {
               return const Center(
-                child: const CircularProgressIndicator(backgroundColor: Colors.white,),
+                child: CircularProgressIndicator(backgroundColor: Colors.white,),
               );
             } else {
               return Center(
                 child: ListView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: state.timetable[_index].data()['subs'].length,
+                    itemCount: state.timetable[_index].data()['subs'].length as int,
                     itemBuilder: (context, index) {
                       
                       return ListTile(
                         title: Center(
                           child: Text(
-                            state.timetable[_index].data()['subs'][index],
+                            state.timetable[_index].data()['subs'][index] as String,
                             overflow: TextOverflow.ellipsis,
                             softWrap: false,
-                            style: TextStyle(
+                            style:const TextStyle(
                                 color: Colors.white,
                                 fontSize: 28,
                                 fontWeight: FontWeight.bold),
@@ -84,22 +84,22 @@ class SubsCard extends StatelessWidget {
                         ),
                         onTap: () {
                           if (state.links.isEmpty) {
-                            Scaffold.of(context).showSnackBar(SnackBar(
-                                content: const Text(
+                            Scaffold.of(context).showSnackBar(const SnackBar(
+                                content:  Text(
                                     "Updating links , try again")));
                           } else  {
-                            String sub =
-                                state.timetable[_index].data()['subs'][index];
-                            String url = state.links[sub];
+                            final sub =
+                                state.timetable[_index].data()['subs'][index] as String;
+                            final url = state.links[sub] as String;
                             if(url.isEmpty){
                               Scaffold.of(context).removeCurrentSnackBar();
-                              Scaffold.of(context).showSnackBar(SnackBar(
-                                content: const Text(
+                              Scaffold.of(context).showSnackBar(const SnackBar(
+                                content:  Text(
                                     "No link available")));
                             }
                             else if (sub.contains('ACS')) {
-                              Scaffold.of(context).showSnackBar(SnackBar(
-                                  content: const Text(
+                              Scaffold.of(context).showSnackBar(const SnackBar(
+                                  content:  Text(
                                       "No link available, search in whatsapp")));
                             } else if (sub.contains("&")) {
                               showModalBottomSheet(
@@ -108,14 +108,15 @@ class SubsCard extends StatelessWidget {
                                     return BlocProvider.value(
                                         value: bloc,
                                         child: BottomSheetOptions(
-                      wtUrl: state.links["WT"],
-                      cnUrl: state.links["CN"],
+                      wtUrl: state.links["WT"] as String,
+                      cnUrl: state.links["CN"] as String,
                                         ));
                                   });
-                            } else
+                            } else {
                               context.bloc<FirestoreBloc>().add(
                                   FirestoreEvent.launchZoom(
                                      url));
+                            }
                           }
                         },
                       );
