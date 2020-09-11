@@ -15,7 +15,7 @@ class SelectClass extends StatelessWidget {
         backgroundColor:Colors.white,
         centerTitle: true,
         elevation: 0,
-        title: const Text("Select Class",style: TextStyle(
+        title: const Text("Select Class",style: const TextStyle(
           color: Colors.black
         ),),
       ),
@@ -28,7 +28,7 @@ class SelectClass extends StatelessWidget {
               shrinkWrap: true,
               children: [
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(5),
                   color: Colors.lightBlue[200],
                   child: ListTile(
                     title: _getText("CSE A"),
@@ -38,7 +38,7 @@ class SelectClass extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(5),
 
                   color: Colors.blue,
                   child: ListTile(
@@ -49,7 +49,7 @@ class SelectClass extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin: const EdgeInsets.all(5),
 
                   color: Colors.lightBlue[200],
                   child: ListTile(
@@ -61,7 +61,7 @@ class SelectClass extends StatelessWidget {
                   ),
                 ),
                 Container(
-                  margin: EdgeInsets.all(5),
+                  margin:const EdgeInsets.all(5),
 
                   color: Colors.blue,
                   child: ListTile(
@@ -80,7 +80,7 @@ class SelectClass extends StatelessWidget {
   }
 
   Widget _getText(String classs){
-    return Center(child: Text(classs,style: TextStyle(
+    return Center(child: Text(classs,style:const TextStyle(
       fontSize: 28,fontWeight: FontWeight.bold,color: Colors.white
     ),),);
   }

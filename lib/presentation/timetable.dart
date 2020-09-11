@@ -74,6 +74,8 @@ class SubsCard extends StatelessWidget {
                         title: Center(
                           child: Text(
                             state.timetable[_index].data()['subs'][index],
+                            overflow: TextOverflow.ellipsis,
+                            softWrap: false,
                             style: TextStyle(
                                 color: Colors.white,
                                 fontSize: 28,
