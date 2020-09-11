@@ -1,5 +1,7 @@
 import 'package:classroom/application/local_storage/localstorage_cubit.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectClass extends StatelessWidget {
@@ -7,9 +9,10 @@ class SelectClass extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey[50],
       key: _key,
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor:Colors.white,
         centerTitle: true,
         elevation: 0,
         title: const Text("Select Class",style: TextStyle(
@@ -19,41 +22,56 @@ class SelectClass extends StatelessWidget {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0),
-          child: Card(
-            elevation: 5,
-            child: Container(
-                      padding: const EdgeInsets.all(10),
-                      color: Colors.green,
-                      child: ListView(
-                        shrinkWrap: true,
-                        children: [
-                          ListTile(
-                            title: _getText("CSE A"),
-                            onTap: (){
-                              BlocProvider.of<LocalstorageCubit>(context).changeClass('csea');
-                            },
-            )  ,
-                
-                ListTile(
-                  title: _getText("CSE B"),
-                  onTap: (){
-                   BlocProvider.of<LocalstorageCubit>(context).changeClass('cseb');
-                  },
+          child: Container(
+            padding: const EdgeInsets.all(10),
+            child: ListView(
+              shrinkWrap: true,
+              children: [
+                Container(
+                  margin: EdgeInsets.all(5),
+                  color: Colors.lightBlue[200],
+                  child: ListTile(
+                    title: _getText("CSE A"),
+                    onTap: (){
+                      BlocProvider.of<LocalstorageCubit>(context).changeClass('csea');
+                    },
+                  ),
                 ),
-                ListTile(
-                  title: _getText("CSE C"),
-                  onTap: (){
-                    BlocProvider.of<LocalstorageCubit>(context).changeClass('csec');
-                  },
+                Container(
+                  margin: EdgeInsets.all(5),
+
+                  color: Colors.blue,
+                  child: ListTile(
+                    title: _getText("CSE B"),
+                    onTap: (){
+                     BlocProvider.of<LocalstorageCubit>(context).changeClass('cseb');
+                    },
+                  ),
                 ),
-                ListTile(
-                  title: _getText("CSE D"),
-                  onTap: (){
-                    BlocProvider.of<LocalstorageCubit>(context).changeClass('csed');
-                  },
+                Container(
+                  margin: EdgeInsets.all(5),
+
+                  color: Colors.lightBlue[200],
+                  child: ListTile(
+
+                    title: _getText("CSE C"),
+                    onTap: (){
+                      BlocProvider.of<LocalstorageCubit>(context).changeClass('csec');
+                    },
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.all(5),
+
+                  color: Colors.blue,
+                  child: ListTile(
+                    title: _getText("CSE D"),
+                    onTap: (){
+                      BlocProvider.of<LocalstorageCubit>(context).changeClass('csed');
+                    },
+                  ),
                 )
               ],
-            ),
             ),
           ),
         ),

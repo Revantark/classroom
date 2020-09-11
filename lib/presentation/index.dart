@@ -15,7 +15,7 @@ class IndexPage extends StatelessWidget {
         return const Center(child: const CircularProgressIndicator(),);
       } else if (state is ClassFound) {
         BlocProvider.of<FirestoreBloc>(context).add(FirestoreEvent.getData(state.classs));
-        return MyHomePage();
+        return MyHomePage(state.classs);
       } else if (state is ClassNotFound) {
         return SelectClass();
       } else {

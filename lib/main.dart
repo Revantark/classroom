@@ -41,9 +41,9 @@ class MyApp extends StatelessWidget {
             ),
           ],
           child: Scaffold(
-                      body: SafeArea(
-              child: IndexPage()
-                      ),
+            body: SafeArea(
+                child: IndexPage()
+            ),
           ),
         ));
   }
