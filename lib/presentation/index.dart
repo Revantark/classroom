@@ -1,6 +1,5 @@
 import 'package:classroom/application/firestore/firestore_bloc.dart';
 import 'package:classroom/application/local_storage/localstorage_cubit.dart';
-import 'package:classroom/presentation/animated_day.dart';
 import 'package:classroom/presentation/home.dart';
 import 'package:classroom/presentation/select_class.dart';
 import 'package:flutter/material.dart';
