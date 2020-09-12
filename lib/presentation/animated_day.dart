@@ -42,54 +42,70 @@ class AnimatedDay extends StatelessWidget {
 }
 
 Widget getDate(int i) {
+  const textStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold,);
   switch (i) {
     case 0:
       {
         return const Text(
           "Monday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+
+          style: textStyle,
         );
       }
     case 1:
       {
         return const Text(
           "Tuesday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
     case 2:
       {
         return const Text(
           "Wednesday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
     case 3:
       {
         return const Text(
           "Thursday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
     case 4:
       {
         return const Text(
           "Friday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
     case 5:
       {
         return const Text(
           "Saturday",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
     default:
       {
         return const Text(
           "SomeDay",
-          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+          overflow: TextOverflow.ellipsis,
+          softWrap: false,
+          style: textStyle,
         );
       }
   }

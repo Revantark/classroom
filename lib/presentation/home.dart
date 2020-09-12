@@ -41,7 +41,6 @@ class _MyHomePageState extends State<MyHomePage> {
               today: today),
         ),
         Flexible(
-          
           child: CurrentClass(
             cc: '${widget.className.substring(0, 3).toUpperCase()}'
                 '-'
