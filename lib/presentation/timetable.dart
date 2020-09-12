@@ -54,6 +54,8 @@ class SubsCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 24.0),
       child: Card(
+        elevation: 10,
+        shadowColor: Colors.blue[300],
         child: Container(
           color: Colors.blue,
           child: BlocBuilder<FirestoreBloc, FirestoreState>(
